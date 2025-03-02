@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">    
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>for demi <3</title>     
+    <link rel="icon" type="image/jpg" href="images/yellowHeart.png"> 
+    <link rel="stylesheet" href="styleDmski.css">
+</head>
+
+<body>
+    <div id="container">
+        <div class="box" onclick="toggleBox()">
+            <div id="unfoldLid">
+                <div id="lid">
+                    <img src="images/dmskiLid2.png">
+                </div>
+            </div>
+
+            <div id="boxFront">
+                <img src="images/dmskiBoxFront.png">
+            </div>
+            <div id="boxInside">
+                <img src="images/dmskiBoxInside.png">
+            </div>
+
+            <div id="toy">
+                <img src="images/dmskiToy.png">
+            </div>
+
+        </div>
+    </div>
+    <a href="index.html" class="back">
+        <img src="images/dmskiBack.png"
+        width="50px"
+        alt = "Back">
+    </a>
+
+     <!-- Pop-up container -->
+     <div id="popupContainer" class="popup">
+         <div class="popup-content">
+             
+             <!-- Main Image -->
+             <img src="images/dmskiCard.png" alt="Pop-Up Image">
+         </div>
+         <!-- Image Close Button -->
+         <img id="closePopup" class="close-btn" src="images/dmskiClose.png" alt="Close">
+     </div>
+
+     <!-- Sound File -->
+<audio id="congratsSound" src="congrats-bell.mp3" preload="auto"></audio>
+
+</body>
+
+<script>
+    var isOpened = false;
+    let popup = document.getElementById("popupContainer");
+    popup.style.display = "none";
+
+    function toggleBox() {
+        if(isOpened==false) {
+            openBox();
+            isOpened = true;
+        }
+        else {
+            closeBox();
+            isOpened = false;
+        }
+    }
+
+    function openBox() {
+        let box = document.getElementById("container");
+        box.classList.add("clicking-disabled");
+
+        let unfold = document.getElementById("lid");
+        unfold.style.zIndex = 3;
+        unfold.style.top = "-75px";
+        unfold.style.transform = "rotateX(180deg)";
+
+        let toy = document.getElementById("toy");
+        toy.style.top = "-200px";
+        toy.style.left = "22px";
+        toy.style.transform = "rotateZ(14deg)";
+    
+        let sound = document.getElementById("congratsSound");
+        setTimeout(() => {
+            sound.play();
+            popup.style.display = "flex";
+        }, 3000);
+
+        setTimeout(() => {
+            box.classList.remove("clicking-disabled");
+        }, 5000);
+    }
+
+    function closeBox() {
+        let box = document.getElementById("container");
+        box.classList.add("clicking-disabled");
+
+        let toy = document.getElementById("toy");
+        toy.style.transform = "rotateZ(0deg)";
+        toy.style.top = "30px";
+        toy.style.left = "0px";
+
+        setTimeout(function () {
+            let unfold = document.getElementById("lid");
+            unfold.style.transform = "rotateX(0deg)";
+            unfold.style.zIndex = 10;
+            unfold.style.top = "-28px";
+        }, 1100);
+
+        setTimeout(() => {
+            box.classList.remove("clicking-disabled");
+        }, 2000);
+        
+    }
+
+document.getElementById("closePopup").addEventListener("click", function() {
+    document.getElementById("popupContainer").style.display = "none";
+});
+
+</script>
+</html>

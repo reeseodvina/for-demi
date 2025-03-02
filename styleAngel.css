@@ -1,0 +1,176 @@
+body {
+    width: 100%;
+    height: 100vh;
+    margin: 0px;
+    display: flex;
+    place-items: center;
+    justify-content: center;
+    background-color: #c8ebf7;
+}
+
+#container {
+    position: relative;
+    transition: 0.3s;
+}
+
+#container:hover {
+    transform: scale(103%);
+    filter: brightness(105%);
+}
+
+.box {
+    position: relative;
+    width: 200px;
+    height: 100px;
+    cursor: pointer;
+    z-index: 100;
+}
+
+#boxFront {
+    position: absolute;
+    top:0px;
+    width: 100%;
+    height: 100%;
+    display:flex;
+    z-index: 20;
+    transition: 1.5s ease-in-out;
+}
+
+#boxFront img {
+    position: relative;
+    width: 170px;
+    margin: auto;
+    z-index: 20;
+}
+
+#boxInside {
+    position: absolute;
+    top:-47px;
+    width: 100%;
+    height: 100%;
+    display:flex;
+    z-index: 0;
+    transition: 1.5s ease-in-out;
+}
+
+#boxInside img {
+    position: relative;
+    width: 167px;
+    margin: auto;
+    z-index: 0;
+    transition: 1.5s ease-in-out;
+}
+
+#toy {
+    position: absolute;
+    top:30px;
+    width:97%;
+    height: 100%;
+    display: flex;
+    z-index: 15;
+    transition: 1.8s ease-in-out
+}
+
+#toy img{
+    position: relative;
+    width: 120px;
+    margin: auto;
+    z-index: 15;
+    transition: 1.8s ease-in-out;
+}
+
+#lid {
+    position: relative;
+    top: -23px;
+    width: 100%;
+    height: 100%;
+    display:flex;
+    z-index: 50;
+    transition: 0.7s ease-in-out;
+}
+
+#lid img {
+    position: relative;
+    width: 167px;
+    margin: auto;
+    z-index: 40;
+    transition: 0.7s ease-in-out;
+}
+
+#message {
+    /*font-family: "TwoHearts"; */
+    position: absolute;
+    top: 150px;
+    left: 50%;
+    transform: translate(-50%);
+    white-space: nowrap;
+    text-align: center;
+    color:#6877a7;
+    transition: 0.3s;
+}
+
+/* Pop-up background */
+.popup {
+    display: none; /* Initially hidden */
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.5); /* Dark overlay */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 200;
+}
+
+/* Pop-up content (image container) */
+.popup-content {
+    filter: drop-shadow(0px 0px 8px rgba(0, 0, 0, 0.2));
+    position: relative;
+    max-width: 90%;
+    max-height: 90%;
+    text-align: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+/* Main Image */
+.popup-content img {
+    width: 500px;
+    height: auto;
+}
+
+/* Close button (Image) */
+.close-btn {
+    position: fixed;
+    top: 10%;
+    right: 10%;
+    width: 50px;  /* Adjust size of close button */
+    cursor: pointer;
+    z-index: 300;
+    transition: 0.3s ease-in-out;
+}
+
+.close-btn:hover {
+    transform: scale(103%);
+    filter: brightness(105%);
+}
+
+.clicking-disabled {
+    pointer-events: none;
+}
+
+.back {
+    display: flex;
+    width: 50px;
+    position: fixed;
+    left: 10%;
+    top: 10%;
+    display: flex;
+    transition: 0.3s ease-in-out;
+}
+
+.back:hover {
+    transform: scale(103%);
+    filter: brightness(105%);
+}
